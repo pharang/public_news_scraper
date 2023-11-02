@@ -1,0 +1,5 @@
+venv/
+venv_selenium/
+__pycache__/
+config.*.json
+Note.md

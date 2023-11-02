@@ -1,0 +1,16 @@
+FROM python:3.11-slim-bullseye
+
+# 작업공간 설정
+WORKDIR /home
+
+# requirements 설치
+ADD ./requirements.txt /home/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# app 가져오기
+ADD ./app /home/app
+# ADD ./config.*.json /home/  # config는 run 시 -v로 import
+
+# 실행
+WORKDIR /home/app
+CMD python run_queue_scraper.py
